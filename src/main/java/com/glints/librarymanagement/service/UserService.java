@@ -1,5 +1,7 @@
 package com.glints.librarymanagement.service;
 
+import java.net.URLEncoder;
+
 import org.apache.catalina.User;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -12,13 +14,14 @@ import com.glints.librarymanagement.repository.EmployeeRepo;
 @Service
 public class UserService {
 	EmployeeRepo repository;
-	PasswordEncoder passwordEncoder;
+//	PasswordEncoder passwordEncoder;
+	BCryptPasswordEncoder bCryptPasswordEncoder;
 	public UserService(EmployeeRepo repository) {
 		this.repository = repository;
-		this.passwordEncoder = new BCryptPasswordEncoder();	
+		this.bCryptPasswordEncoder = new BCryptPasswordEncoder();	
 	}
 	public Employee save(Employee employee) {
-		String encodedPassword = this.passwordEncoder.encode(employee.getPassword());
+		String encodedPassword = this.bCryptPasswordEncoder.encode(employee.getPassword());
 		employee.setPassword(encodedPassword);
 		return this.repository.save(employee);
 	}
