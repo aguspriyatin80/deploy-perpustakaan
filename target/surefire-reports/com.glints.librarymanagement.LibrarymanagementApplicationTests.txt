@@ -1,7 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.glints.librarymanagement.LibrarymanagementApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.984 s <<< FAILURE! - in com.glints.librarymanagement.LibrarymanagementApplicationTests
-com.glints.librarymanagement.LibrarymanagementApplicationTests  Time elapsed: 0.983 s  <<< ERROR!
-java.lang.IllegalStateException: Unable to find a @SpringBootConfiguration, you need to use @ContextConfiguration or @SpringBootTest(classes=...) with your test
-
