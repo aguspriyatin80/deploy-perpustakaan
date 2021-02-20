@@ -2,6 +2,10 @@ package com.glints.librarymanagement.payload;
 
 import javax.persistence.Entity;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.glints.librarymanagement.service.UserService;
 
@@ -14,6 +18,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class EmployeePayload {
 //	UserService userService;
+	@Autowired
+	BCryptPasswordEncoder bCryptPasswordEncoder;
 	@JsonProperty("id")
 	private int id;
 	@JsonProperty("name")
@@ -41,11 +47,11 @@ public class EmployeePayload {
 	}
 
 	public String getPassword() {
-		return password;
+		return password = password;
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		this.password = this.bCryptPasswordEncoder.encode(password);
 	}
 
 	public String getUserName() {

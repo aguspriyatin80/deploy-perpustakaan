@@ -9,6 +9,9 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name="employee")
@@ -54,6 +57,7 @@ public class Employee extends Persistence{
 	}
 
 	public String getPassword() {
+		
 		return password;
 	}
 

@@ -10,7 +10,9 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.glints.librarymanagement.model.Persistence;
 
 @Data
@@ -24,9 +26,10 @@ import com.glints.librarymanagement.model.Persistence;
         "WHERE id = ?")
 @Where(clause = "deleted = false")
 public class User extends Persistence{
-    @Id
+	BCryptPasswordEncoder bCryptPasswordEncoder;
+	@Id
     private int id;
-    private String userName;
+	private String userName;
     private String password;
     private String name;
 
@@ -47,8 +50,9 @@ public class User extends Persistence{
 		this.name = name;
 	}
 	public void setPassword(String password) {
-		// TODO Auto-generated method stub
+
 		this.password = password;
+
 	}
 	public void setUserName(String userName) {
 		// TODO Auto-generated method stub
