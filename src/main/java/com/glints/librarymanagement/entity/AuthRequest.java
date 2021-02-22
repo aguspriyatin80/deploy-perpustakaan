@@ -1,6 +1,5 @@
 package com.glints.librarymanagement.entity;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AuthRequest {
+
     private String userName;
     private String password;
 	public String getUserName() {
@@ -18,6 +18,5 @@ public class AuthRequest {
 	public String getPassword() {
 		// TODO Auto-generated method stub
 		return password;
-		
 	}
 }
