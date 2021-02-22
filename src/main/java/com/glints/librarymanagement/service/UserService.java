@@ -9,11 +9,11 @@ import com.glints.librarymanagement.repository.EmployeeRepo;
 @Service
 public class UserService {
 	EmployeeRepo repository;
-//	PasswordEncoder passwordEncoder;
 	BCryptPasswordEncoder bCryptPasswordEncoder;
 	public UserService(EmployeeRepo repository) {
 		this.repository = repository;
-		this.bCryptPasswordEncoder = new BCryptPasswordEncoder();	
+		this.bCryptPasswordEncoder = new BCryptPasswordEncoder();
+
 	}
 	public Employee save(Employee employee) {
 		String encodedPassword = this.bCryptPasswordEncoder.encode(employee.getPassword());
